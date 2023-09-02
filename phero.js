@@ -4,7 +4,7 @@ const LoadCategory = async () => {
     );
     const data = await response.json();
 
-    
+
     const tabContainer = document.getElementById("tab-container");
     data.data.forEach((category) => {
         const div = document.createElement("div");
@@ -35,8 +35,8 @@ const LoadCards = (cards) => {
     const cardContainer = document.getElementById("card-container");
     cardContainer.innerHTML = "";
 
-    if (cards.length===0) {
-        
+    if (cards.length === 0) {
+
         const div = document.createElement("div");
         div.innerHTML = `
         <div class="grid grid-cols lg:grid-cols-1 text-center items-center justify-items-center gap-10 mx-4 lg:mx-96 py-20 w-full">
@@ -173,16 +173,18 @@ const LoadCards = (cards) => {
         cardContainer.appendChild(div);
 
     }
-    else{
+    else {
         cards.forEach((videos) => {
             
+            
+    
             const div = document.createElement('div');
             div.innerHTML = `
             <div class="card bg-base-100 h-96 rounded-md">
                 <figure><img class="w-full h-60 rounded-md" src=${videos.thumbnail} alt="" /></figure>
                 <div class="card-body flex flex-row gap-4 pl-0">
                 <img class="rounded-full w-10 h-10" src=${videos.authors[0].profile_picture} alt="">
-                <div">
+                <div>
                     <h2 class="card-title">${videos.title}</h2>
                     <p class="flex flex-row gap-2">${videos.authors[0].profile_name} ${videos.authors[0].verified ? `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <g clip-path="url(#clip0_13_1000)">
@@ -197,28 +199,34 @@ const LoadCards = (cards) => {
                   </svg>` : ''}</p>
                     <p>${videos.others.views} views</p>
                 </div>
+                <div class="absolute right-2 bottom-40 bg-black text-white px-2 py-1 rounded">
+                    <p>${videos.others.posted_date ? (() => {
+                        const hours = Math.floor((videos.others.posted_date) / 3600);
+                        const minutes = Math.floor(((videos.others.posted_date) % 3600) / 60);
+                        return `${hours} hrs ${minutes} min ago`;
+                        })() : ""}
+                    </p>                
                 </div>
             </div>
             `;
-    
+
             cardContainer.appendChild(div);
         });
     }
-    
+
 };
 
 const sortButton = document.getElementById("sortButton");
 sortButton.addEventListener("click", () => {
-    // Sort videoCards based on views in descending order
     videoCards.sort((a, b) => {
         const viewA = parseFloat(a.others.views.replace('K', ''));
         const viewB = parseFloat(b.others.views.replace('K', ''));
         return viewB - viewA;
     });
 
-    // Render the sorted video cards
     LoadCards(videoCards);
 });
 
 LoadCategory();
+
 
