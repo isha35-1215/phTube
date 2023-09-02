@@ -1,11 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PH Tube</title>
+    <script src="https://kit.fontawesome.com/3b4d9ef92c.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
+    <nav class="m-16 flex flex-col md:flex-row lg:flex-row gap-2 lg:gap-40">
+        <div class="flex flex-row items-center gap-2">
+            <i class="fa-solid fa-play text-white bg-[#FF1F3D] p-2 rounded-full"></i>
+            <h1 class="font-bold text-3xl"><span class="text-[#FF1F3D] ">PH</span> Tube</h1>
+        </div>
+
+        <button id="sortButton" class="grow font-medium text-lg bg-[#25252533] w-40 p-2 mx-0 md:mx-20 lg:mx-96 rounded">Sort by
+            view</button>
+
+        <button class=" font-medium text-lg text-white bg-[#FF1F3D] w-20 rounded py-2 px-4 ">Blog</button>
+    </nav>
+
+    <div class="tab-container w-full">
+        <div class="tabs tabs-boxed m-auto text-center justify-center bg-inherit" id="tab-container">
+            <!-- <a class="tab">Tab 1</a> 
+            <a class="tab tab-active">Tab 2</a> 
+            <a class="tab">Tab 3</a> -->
+        </div>
+    </div>
+    <div id="card-container" class="mt-6 mx-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- <div class="card w-96 bg-base-100 shadow-xl">
+            <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+            <div class="card-body flex flex-row">
+                <img class="rounded-full" src="" alt="">
+                <div>
+                    <h2 class="card-title">
+                        Building a Winning UX Strategy Using the Kano Model
+                    </h2>
+                    <p>Awlad Hossain <i class="fa-solid fa-circle-check text-blue-700"></i></p>
+                    <p>100K views</p>
+                </div>
+            </div>
+        </div> -->
+
+    </div>
+    <div id="empty-container" >
+    </div>
     
+    <script src="phero.js"></script>
 </body>
+
 </html>
